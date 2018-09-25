@@ -9,6 +9,3 @@ export default {
   name: 'AddVue'
 }
 </script>
-
-<style scoped>
-</style>

@@ -2,7 +2,7 @@
 
   <table class="table table-hover">
     <caption>
-      Общее количество пользователей: {{ users.length }}
+      Общее количество пользователей: {{ usersListLen }}
     </caption>
     <thead>
       <tr>
@@ -43,13 +43,14 @@ export default {
   },
   data: function() {
     return {
-      message: 'Hello Vue!',
       shownTable: 'true',
       text: 'The text that is to be copied'
+    }
+  },
+  computed: {
+    usersListLen: function() {
+      return this.users.length
     }
   }
 }
 </script>
-
-<style scoped>
-</style>

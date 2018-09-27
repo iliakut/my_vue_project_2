@@ -6,6 +6,7 @@
     </caption>
     <thead>
       <tr>
+        <th>#</th>
         <th>Имя</th>
         <th>Фамилия</th>
         <th>Активен</th>
@@ -19,6 +20,7 @@
       <tr
         v-for="user in users"
         :key="user.id">
+        <td>{{ user.id }}</td>
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>
         <td>{{ user.isActive }}</td>

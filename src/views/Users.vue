@@ -33,7 +33,7 @@ export default {
         .get('http://localhost:3004/users')
         .then(response => response.data)
         .then(users => (this.users = users))
-        .catch(error => (console.error = error))
+        .catch(error => console.log(error))
     }
   }
 }

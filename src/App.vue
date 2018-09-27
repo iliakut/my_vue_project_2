@@ -19,7 +19,7 @@
             <li class="nav-item active">
               <router-link to="/Add" class="nav-link" active-class="active" exact>
                 <a class="nav-link"
-                   href="#">Добавить пользователей</a>
+                   href="#">Добавить пользователя</a>
               </router-link>
             </li>
           </ul>

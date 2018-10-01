@@ -1,21 +1,25 @@
 <template>
   <div>
-    <div class="about">
-      <h1>Добавить пользователя</h1>
-      <div
-        v-if="!user"
-        class="alert alert-warning">
-        Загрузка...
-      </div>
-      <user-form
-        v-else
-        :user="user"/>
+    <h1>Добавить пользователя</h1>
+    <user-form
+      :user="user"
+      @sendInput="currUser => user = currUser"/>
+    <div>
+      <button
+        type="button"
+        class="btn btn-dark"
+        @click="save"
+      >
+        Создать
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 import UserForm from '@/components/UserForm.vue'
+import axios from 'axios'
+
 const userTemplate = {
   id: 0,
   isActive: false,
@@ -23,7 +27,7 @@ const userTemplate = {
   picture: '',
   age: 0,
   accessLevel: '',
-  firstName: '1',
+  firstName: '',
   lastName: '',
   company: '',
   email: '',
@@ -40,15 +44,16 @@ export default {
   },
   data: function() {
     return {
-      user: null
+      user: userTemplate,
+      url: 'http://localhost:3004/users/',
+      test: 0
     }
   },
-  mounted: function() {
-    this.loadData()
-  },
   methods: {
-    loadData: function() {
-      this.user = Object.assign({}, userTemplate)
+    save: function() {
+      axios.post(this.url, this.user).then(() => {
+        this.$router.push({ path: '/users' })
+      })
     }
   }
 }

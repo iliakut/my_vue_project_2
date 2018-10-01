@@ -2,7 +2,9 @@
   <div>
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
         <div class="collapse navbar-collapse">
+
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <router-link to="/" class="nav-link" active-class="active" exact>
@@ -10,12 +12,14 @@
                    href="#">Главная</a>
               </router-link>
             </li>
+
             <li class="nav-item active">
               <router-link to="/Users" class="nav-link" active-class="active" exact>
                 <a class="nav-link"
                    href="#">Список пользователей</a>
               </router-link>
             </li>
+
             <li class="nav-item active">
               <router-link to="/Add" class="nav-link" active-class="active" exact>
                 <a class="nav-link"
@@ -26,10 +30,10 @@
         </div>
       </nav>
     </header>
-    <main role="main" >
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <router-view/>
-      </div>
+    <main role="main" class="container">
+
+      <router-view/>
+
     </main>
   </div>
 </template>
@@ -48,5 +52,7 @@ export default {
 }
 main {
   margin-top: 100px;
+}
+pre {
 }
 </style>

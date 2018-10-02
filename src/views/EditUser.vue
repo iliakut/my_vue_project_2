@@ -9,15 +9,18 @@
       v-else
       :user="user"
       @sendInput="currUser => user = currUser"/>
-    <pre>{{ user }}</pre>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import UserForm from '@/components/UserForm.vue'
 
 export default {
   name: 'EditUser',
+  components: {
+    UserForm
+  },
   data: function() {
     return {
       user: null
@@ -39,7 +42,7 @@ export default {
       axios
         .get(this.url)
         .then(response => response.data)
-        .then(user => (this.users = user))
+        .then(user => (this.user = user))
         .catch(error => console.log(error))
     }
   }

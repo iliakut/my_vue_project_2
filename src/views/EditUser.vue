@@ -10,7 +10,7 @@
       :user="user"
       @sendInput="currUser => user = currUser"/>
     <button type="button" class="btn btn-dark" @click="save">Сохранить</button>
-    <button type="button" class="btn btn-dark">Удалить</button>
+    <button type="button" class="btn btn-dark" @click="deleteUser">Удалить</button>
 
   </div>
 </template>
@@ -48,9 +48,15 @@ export default {
         .then(user => (this.user = user))
         .catch(error => console.log(error))
     },
-    save: function() {
+    save() {
       axios.patch(this.url, this.user).then(() => {
         console.log('Данные отредатированы')
+        this.$router.push({ path: '/users' })
+      })
+    },
+    deleteUser() {
+      axios.delete(this.url, this.user).then(() => {
+        console.log('Пользователь удален')
         this.$router.push({ path: '/users' })
       })
     }

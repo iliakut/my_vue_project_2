@@ -24,6 +24,7 @@ export default {
   data: () => ({
     users: []
   }),
+  computed: {},
   mounted() {
     this.loadUsers()
   },

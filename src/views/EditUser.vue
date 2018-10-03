@@ -9,6 +9,9 @@
       v-else
       :user="user"
       @sendInput="currUser => user = currUser"/>
+    <button type="button" class="btn btn-dark" @click="save">Сохранить</button>
+    <button type="button" class="btn btn-dark">Удалить</button>
+
   </div>
 </template>
 
@@ -44,6 +47,12 @@ export default {
         .then(response => response.data)
         .then(user => (this.user = user))
         .catch(error => console.log(error))
+    },
+    save: function() {
+      axios.patch(this.url, this.user).then(() => {
+        console.log('Данные отредатированы')
+        this.$router.push({ path: '/users' })
+      })
     }
   }
 }

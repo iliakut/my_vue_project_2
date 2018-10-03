@@ -7,21 +7,21 @@
 
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <router-link to="/" class="nav-link" active-class="active" exact>
+              <router-link to="/" class="nav-link" exact>
                 <a class="nav-link"
                    href="#">Главная</a>
               </router-link>
             </li>
 
             <li class="nav-item active">
-              <router-link to="/Users" class="nav-link" active-class="active" exact>
+              <router-link to="/Users" class="nav-link" exact>
                 <a class="nav-link"
                    href="#">Список пользователей</a>
               </router-link>
             </li>
 
             <li class="nav-item active">
-              <router-link to="/Add" class="nav-link" active-class="active" exact>
+              <router-link to="/Add" class="nav-link" exact>
                 <a class="nav-link"
                    href="#">Добавить пользователя</a>
               </router-link>
@@ -39,8 +39,6 @@
 </template>
 
 <script>
-import 'bootstrap/dist/css/bootstrap.css'
-
 export default {
   name: 'App'
 }
@@ -52,7 +50,5 @@ export default {
 }
 main {
   margin-top: 100px;
-}
-pre {
 }
 </style>

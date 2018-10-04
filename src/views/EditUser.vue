@@ -49,16 +49,22 @@ export default {
         .catch(error => console.log(error))
     },
     save() {
-      axios.patch(this.url, this.user).then(() => {
-        console.log('Данные отредатированы')
-        this.$router.push({ path: '/users' })
-      })
+      axios
+        .patch(this.url, this.user)
+        .then(() => {
+          console.log('Данные отредатированы')
+          this.$router.push({ path: '/users' })
+        })
+        .catch(error => console.log(error))
     },
     deleteUser() {
-      axios.delete(this.url, this.user).then(() => {
-        console.log('Пользователь удален')
-        this.$router.push({ path: '/users' })
-      })
+      axios
+        .delete(this.url, this.user)
+        .then(() => {
+          console.log('Пользователь удален')
+          this.$router.push({ path: '/users' })
+        })
+        .catch(error => console.log(error))
     }
   }
 }

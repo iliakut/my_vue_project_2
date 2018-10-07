@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import UserForm from '@/components/UserForm.vue'
 import axios from 'axios'
 
 const userTemplate = {
@@ -40,7 +39,7 @@ const userTemplate = {
 export default {
   name: 'AddUser',
   components: {
-    'user-form': UserForm
+    'user-form': () => import('@/components/UserForm.vue')
   },
   data: function() {
     return {

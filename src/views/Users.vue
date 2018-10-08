@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <h1>Список пользователей</h1>
+    <pagination-form/>
     <div
       v-if="!users.length"
       class="alert alert-warning">
@@ -13,13 +14,13 @@
 </template>
 
 <script>
-import UserList from '@/components/UserList.vue'
 import axios from 'axios'
 
 export default {
   name: 'Users',
   components: {
-    'user-list': UserList
+    'user-list': () => import('@/components/UserList.vue'),
+    'pagination-form': () => import('@/components/Pagination.vue')
   },
   data: () => ({
     users: []
@@ -39,3 +40,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+h1 {
+  color: #4e0435;
+}
+</style>

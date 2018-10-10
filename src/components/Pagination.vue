@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Количество пользователей на странице {{ usersPerPage }}</p>
+    <p>Отображать пользователей на странице: {{ usersPerPage }}  </p>
     <rows-per-page
       @changeRaws="rows => usersPerPage = rows"
     />
@@ -14,7 +14,7 @@ export default {
     'rows-per-page': () => import('@/components/Pagination/RowsPerPage')
   },
   data: () => ({
-    usersPerPage: 0
+    usersPerPage: 2
   })
 }
 </script>

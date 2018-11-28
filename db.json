@@ -1,38 +1,5 @@
 {
-  "users":
-  [
-    {
-      "id": 0,
-      "isActive": false,
-      "balance": "$3,519.51",
-      "picture": "http://placehold.it/128x128",
-      "age": 27,
-      "accessLevel": "user",
-      "firstName": "Rhoda",
-      "lastName": "Hicks",
-      "company": "ZILODYNE",
-      "email": "rhoda.hicks@zilodyne.ca",
-      "phone": "+7 (814) 498-2616",
-      "address": "114 Whitney Avenue, Fulford, North Dakota, 2119",
-      "about": "Ad commodo in labore qui officia. Proident sit mollit velit esse esse sunt esse do adipisicing eu incididunt. Aute tempor sunt fugiat culpa pariatur dolore. Voluptate consequat voluptate veniam nulla labore. Veniam aute culpa commodo in magna adipisicing.",
-      "registered": "19.03.2014"
-    },
-    {
-      "id": 1,
-      "isActive": false,
-      "balance": "$1,972.47",
-      "picture": "http://placehold.it/128x128",
-      "age": 40,
-      "accessLevel": "user",
-      "firstName": "Loretta",
-      "lastName": "Rollins",
-      "company": "ISOLOGIX",
-      "email": "loretta.rollins@isologix.name",
-      "phone": "+7 (997) 525-2089",
-      "address": "566 Jewel Street, Sugartown, Illinois, 6772",
-      "about": "Aute reprehenderit commodo ad qui labore consequat officia proident qui eiusmod consequat amet sit. Dolor consequat occaecat nostrud fugiat ut ad aliquip duis nulla labore culpa qui culpa. Duis nostrud nisi nulla velit non do.",
-      "registered": "20.08.2017"
-    },
+  "users": [
     {
       "id": 2,
       "isActive": false,
@@ -452,34 +419,18 @@
     {
       "id": 28,
       "isActive": false,
-      "balance": "$2,529.65",
-      "picture": "http://placehold.it/128x128",
-      "age": 20,
-      "accessLevel": "guest",
-      "firstName": "Earline",
-      "lastName": "Gill",
-      "company": "BLURRYBUS",
-      "email": "earline.gill@blurrybus.org",
-      "phone": "+7 (896) 472-2173",
-      "address": "222 Bedell Lane, Thatcher, North Carolina, 8391",
-      "about": "Dolore qui ex esse duis laborum elit veniam esse magna quis. Aliqua minim sunt sit ut duis sit nisi eiusmod magna. Veniam et voluptate deserunt officia.",
-      "registered": "10.01.2014"
-    },
-    {
-      "id": 29,
-      "isActive": false,
-      "balance": "$1,012.12",
-      "picture": "http://placehold.it/128x128",
-      "age": 40,
-      "accessLevel": "admin",
-      "firstName": "Angelia",
-      "lastName": "Alford",
-      "company": "FANGOLD",
-      "email": "angelia.alford@fangold.tv",
-      "phone": "+7 (852) 409-2772",
-      "address": "234 Corbin Place, Stewart, New Hampshire, 7119",
-      "about": "Enim ad tempor duis exercitation enim et duis et. Proident eiusmod minim aliquip voluptate. Pariatur ex cupidatat veniam dolor deserunt nisi proident eu incididunt id consequat pariatur. Quis cillum labore mollit consectetur cillum commodo. Ea in elit pariatur consectetur adipisicing amet est minim culpa magna amet duis.",
-      "registered": "14.03.2018"
+      "balance": "",
+      "picture": "",
+      "age": 0,
+      "accessLevel": "",
+      "firstName": "дима",
+      "lastName": "",
+      "company": "",
+      "email": "",
+      "phone": "",
+      "address": "",
+      "about": "",
+      "registered": ""
     }
   ]
 }

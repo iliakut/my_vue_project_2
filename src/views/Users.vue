@@ -1,7 +1,9 @@
 <template>
   <div class="about">
     <h1>Список пользователей</h1>
-    <pagination-form/>
+    <pagination-form
+      @changeRaws="usersPerPage => rows = usersPerPage"
+    />
     <div
       v-if="!users.length"
       class="alert alert-warning">
@@ -20,10 +22,11 @@ export default {
   name: 'Users',
   components: {
     'user-list': () => import('@/components/UserList.vue'),
-    'pagination-form': () => import('@/components/Pagination.vue')
+    'pagination-form': () => import('@/components/Pagination/Pagination.vue')
   },
   data: () => ({
-    users: []
+    users: [],
+    rows: '2'
   }),
   computed: {},
   mounted() {

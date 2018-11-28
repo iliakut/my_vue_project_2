@@ -1,6 +1,6 @@
 <template>
   <div>
-    <select @input="changed(+$event.target.value)">
+    <select @input="changed($event.target.value)">
       <option v-for="rows in rowsOnPage" :key="rows" :value="rows">
         {{ rows }}
       </option>

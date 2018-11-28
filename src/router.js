@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from '@/views/Home.vue'
 import Users from '@/views/Users.vue'
 import AddUser from '@/views/Add.vue'
-import EditUser from '@/views/EditUser'
+import EditUser from '@/components/EditUser'
 Vue.use(Router)
 
 export default new Router({

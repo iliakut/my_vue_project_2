@@ -15,6 +15,16 @@ export default {
   },
   data: () => ({
     usersPerPage: 2
-  })
+  }),
+  watch: {
+    usersPerPage: function(val) {
+      this.changed(val)
+    }
+  },
+  methods: {
+    changed(value) {
+      this.$emit('changeRaws', value)
+    }
+  }
 }
 </script>

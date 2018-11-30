@@ -11,7 +11,8 @@
     </div>
     <user-list
       v-else
-      :users="users"/>
+      :users="users"
+      :rows="rows"/>
   </div>
 </template>
 

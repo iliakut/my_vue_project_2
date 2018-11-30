@@ -18,7 +18,7 @@
     </thead>
     <tbody>
       <tr
-        v-for="user in users"
+        v-for="user in arrOfArrUsers[currentPage]"
         :key="user.id">
         <router-link :to="/edit/ + user.id">
           <td>{{ user.id }}</td>
@@ -43,17 +43,39 @@ export default {
     users: {
       type: Array,
       required: true
+    },
+    rows: {
+      type: [String, Number],
+      required: true
     }
   },
-  data: function() {
-    return {
-      shownTable: 'true',
-      text: 'The text that is to be copied'
-    }
-  },
+  data: () => ({
+    shownTable: 'true',
+    text: 'The text that is to be copied',
+    currentPage: 0
+  }),
   computed: {
     usersListLen: function() {
       return this.users.length
+    },
+    arrOfArrUsers: function() {
+      return this.splitUsersToPages(this.rows, this.users)
+    }
+  },
+  methods: {
+    splitUsersToPages(rows, users) {
+      let arrOfArrUsers = []
+      let currentUsersArray = []
+      const listLen = users.length
+      const numberOfArrays = Math.ceil(listLen / rows)
+
+      for (let i = 0; i <= numberOfArrays - 1; i++) {
+        let start = i * rows
+        let end = rows - 1 + start
+        currentUsersArray = users.slice(start, end + 1)
+        arrOfArrUsers.push(currentUsersArray)
+      }
+      return arrOfArrUsers
     }
   }
 }

@@ -1,38 +1,43 @@
 <template>
+  <div>
+    <table class="table table-hover">
+      <caption>
+        Общее количество пользователей: {{ usersListLen }}
+      </caption>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Имя</th>
+          <th>Фамилия</th>
+          <th>Активен</th>
+          <th>Баланс</th>
+          <th>Email</th>
+          <th>Телефон</th>
+          <th>Зарегистрирован</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="user in arrOfArrUsers[currentPage]"
+          :key="user.id">
+          <router-link :to="/edit/ + user.id">
+            <td>{{ user.id }}</td>
+          </router-link>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.isActive }}</td>
+          <td>{{ user.balance }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.registered }}</td>
+        </tr>
+      </tbody>
 
-  <table class="table table-hover">
-    <caption>
-      Общее количество пользователей: {{ usersListLen }}
-    </caption>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Имя</th>
-        <th>Фамилия</th>
-        <th>Активен</th>
-        <th>Баланс</th>
-        <th>Email</th>
-        <th>Телефон</th>
-        <th>Зарегистрирован</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        v-for="user in arrOfArrUsers[currentPage]"
-        :key="user.id">
-        <router-link :to="/edit/ + user.id">
-          <td>{{ user.id }}</td>
-        </router-link>
-        <td>{{ user.firstName }}</td>
-        <td>{{ user.lastName }}</td>
-        <td>{{ user.isActive }}</td>
-        <td>{{ user.balance }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.phone }}</td>
-        <td>{{ user.registered }}</td>
-      </tr>
-    </tbody>
-  </table>
+    </table>
+    <button v-for="arr in arrOfArrUsers"
+            :key="arr"
+    >{{ 123 }}</button>
+  </div>
 </template>
 
 <script>
@@ -76,6 +81,9 @@ export default {
         arrOfArrUsers.push(currentUsersArray)
       }
       return arrOfArrUsers
+    },
+    showPagesButtons() {
+      return this.arrOfArrUsers.length
     }
   }
 }

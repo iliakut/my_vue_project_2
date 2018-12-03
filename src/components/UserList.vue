@@ -34,9 +34,10 @@
       </tbody>
 
     </table>
-    <button v-for="arr in arrOfArrUsers"
-            :key="arr"
-    >{{ 123 }}</button>
+    <button v-for="(arr, index) in arrOfArrUsers"
+            :key="index"
+            class="btn btn-lg btn-primary"
+    >{{ index + 1 }}</button>
   </div>
 </template>
 
@@ -88,3 +89,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+button {
+  margin: 3px;
+}
+</style>

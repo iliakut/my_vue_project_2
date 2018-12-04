@@ -24,6 +24,21 @@
     </div>
 
     <div class="input-group mb-3">
+
+      <div class="input-group-prepend">
+        <span class="input-group-text">Аватарка</span>
+      </div>
+      <input
+        v-model="userToChange.picture"
+        type="text"
+        class="form-control mr-sm-2"
+      >
+    </div>
+    <div class="input-group mb-3">
+      <img :src="userToChange.picture">
+    </div>
+
+    <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Баланс</span>
       </div>

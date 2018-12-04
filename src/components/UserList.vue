@@ -34,10 +34,14 @@
       </tbody>
 
     </table>
-    <button v-for="(arr, index) in arrOfArrUsers"
-            :key="index"
-            class="btn btn-lg btn-primary"
-    >{{ index + 1 }}</button>
+    <div
+      v-if="arrOfArrUsers.length > 1">
+      <button v-for="(arr, index) in arrOfArrUsers"
+              :key="index"
+              class="btn btn-lg btn-primary"
+              @click="changePage(index)"
+      >{{ index + 1 }}</button>
+    </div>
   </div>
 </template>
 
@@ -68,6 +72,11 @@ export default {
       return this.splitUsersToPages(this.rows, this.users)
     }
   },
+  watch: {
+    rows: function() {
+      this.setCurrentPageToZero()
+    }
+  },
   methods: {
     splitUsersToPages(rows, users) {
       let arrOfArrUsers = []
@@ -83,8 +92,11 @@ export default {
       }
       return arrOfArrUsers
     },
-    showPagesButtons() {
-      return this.arrOfArrUsers.length
+    changePage(buttonNum) {
+      this.currentPage = buttonNum
+    },
+    setCurrentPageToZero() {
+      this.currentPage = 0
     }
   }
 }

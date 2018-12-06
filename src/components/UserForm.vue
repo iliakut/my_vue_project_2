@@ -24,19 +24,10 @@
     </div>
 
     <div class="input-group mb-3">
-
-      <div class="input-group-prepend">
-        <span class="input-group-text">Аватарка</span>
-      </div>
-      <input
-        v-model="userToChange.picture"
-        type="text"
-        class="form-control mr-sm-2"
-      >
+      <avatar-Uploader
+        :picture="userToChange.picture"/>
     </div>
-    <div class="input-group mb-3">
-      <img :src="userToChange.picture">
-    </div>
+    <!--v-model="userToChange.picture"/>-->
 
     <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -123,6 +114,9 @@
 <script>
 export default {
   name: 'UserForm',
+  components: {
+    avatarUploader: () => import('@/components/AvatarUploader')
+  },
   props: {
     user: {
       type: Object,
@@ -132,7 +126,8 @@ export default {
 
   data: function() {
     return {
-      userToChange: null
+      userToChange: null,
+      test: '123'
     }
   },
 

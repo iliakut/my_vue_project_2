@@ -25,9 +25,8 @@
 
     <div class="input-group mb-3">
       <avatar-Uploader
-        :picture="userToChange.picture"/>
+        v-model="userToChange.picture"/>
     </div>
-    <!--v-model="userToChange.picture"/>-->
 
     <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -62,16 +61,9 @@
       >
     </div>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Зарегистрирован</span>
-      </div>
-      <input
-        v-model="userToChange.registered"
-        type="text"
-        class="form-control mr-sm-2"
-      >
-    </div>
+    <date-pick
+      v-model="userToChange.registered"
+    />
 
     <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -115,7 +107,8 @@
 export default {
   name: 'UserForm',
   components: {
-    avatarUploader: () => import('@/components/AvatarUploader')
+    avatarUploader: () => import('@/components/AvatarUploader'),
+    datePick: () => import('@/components/datePick')
   },
   props: {
     user: {
@@ -145,7 +138,6 @@ export default {
   }
 }
 </script>
-
 <style>
 span {
   width: 150px;

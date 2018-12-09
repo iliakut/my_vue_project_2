@@ -1,37 +1,43 @@
 <template>
   <div>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Имя</span>
-      </div>
+    <div>
+      <label>Имя</label>
+      <!--забиндим класс, если есть ошибка-->
       <input
+        v-validate="'required'"
         v-model="userToChange.firstName"
+        :class="{ 'is-invalid': errors.has('firstName') }"
         type="text"
         class="form-control mr-sm-2"
+        name="firstName"
       >
+      <span class="help-block text-danger">
+        {{ errors.first('firstName') }}
+      </span>
     </div>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Фамилия</span>
-      </div>
+    <div>
+      <label>Фамилия</label>
       <input
+        v-validate="'required'"
         v-model="userToChange.lastName"
+        :class="{ 'is-invalid': errors.has('lastName') }"
         type="text"
         class="form-control mr-sm-2"
+        name="lastName"
       >
+      <span class="help-block text-danger">
+        {{ errors.first('lastName') }}
+      </span>
     </div>
 
-    <div class="input-group mb-3">
-      <avatar-Uploader
-        v-model="userToChange.picture"/>
-    </div>
+    <avatar-Uploader
+      v-model="userToChange.picture"/>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Баланс</span>
-      </div>
+
+    <div>
+      <label>Баланс</label>
       <input
         v-model="userToChange.balance"
         type="text"
@@ -39,21 +45,23 @@
       >
     </div>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Email</span>
-      </div>
+    <div>
+      <label>Email</label>
       <input
+        v-validate="'required|email'"
         v-model="userToChange.email"
+        :class="{ 'is-invalid': errors.has('email') }"
         type="text"
         class="form-control mr-sm-2"
+        name="email"
       >
+      <span class="help-block text-danger">
+        {{ errors.first('email') }}
+      </span>
     </div>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Телефон</span>
-      </div>
+    <div>
+      <label>Телефон</label>
       <input
         v-model="userToChange.phone"
         type="text"
@@ -65,10 +73,8 @@
       v-model="userToChange.registered"
     />
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Возраст</span>
-      </div>
+    <div>
+      <label>Возраст</label>
       <input
         v-model="userToChange.age"
         type="text"
@@ -76,10 +82,8 @@
       >
     </div>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Компания</span>
-      </div>
+    <div>
+      <label>Компания</label>
       <input
         v-model="userToChange.company"
         type="text"
@@ -87,10 +91,8 @@
       >
     </div>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text">О себе</span>
-      </div>
+    <div>
+      <label>О себе</label>
       <input
         v-model="userToChange.about"
         type="text"
@@ -106,6 +108,8 @@
 <script>
 export default {
   name: 'UserForm',
+  //валидация для компонента выше
+  inject: ['$validator'],
   components: {
     avatarUploader: () => import('@/components/AvatarUploader'),
     datePick: () => import('@/components/datePick')
@@ -141,5 +145,8 @@ export default {
 <style>
 span {
   width: 150px;
+}
+label {
+  margin-top: 10px;
 }
 </style>

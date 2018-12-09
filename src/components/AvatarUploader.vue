@@ -1,9 +1,7 @@
 <template>
 
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text">Аватарка</span>
-    </div>
+  <div>
+    <label>Аватарка</label>
     <input
       v-model="picture"
       type="text"
@@ -13,12 +11,10 @@
       <img :src="picture">
     </div>
 
-    <div>
-      <input ref="image" type="file" class="hidden" @change="upload()">
-      <button type="button" class="btn btn-dark" @click="selectNewFile()">
-        Выбрать новую...
-      </button>
-    </div>
+    <input ref="image" type="file" class="hidden" @change="upload()">
+    <button type="button" class="btn btn-dark" @click="selectNewFile()">
+      Выбрать новую...
+    </button>
   </div>
 
 </template>
@@ -73,5 +69,8 @@ export default {
 }
 img {
   margin-top: 15px;
+}
+button {
+  margin-bottom: 10px;
 }
 </style>

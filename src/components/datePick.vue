@@ -1,19 +1,17 @@
 <template>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text">Зарегистрирован</span>
-    </div>
+  <div>
+    <label>Зарегистрирован</label>
     <input
       ref="datePicker"
       :value="registered"
       type="text"
-      class="form-control mr-sm-2">
+      class="form-control mr-sm-2, dark">
   </div>
 </template>
 
 <script>
 import flatpickr from 'flatpickr'
-import 'flatpickr/dist/flatpickr.css'
+import 'flatpickr/dist/themes/dark.css'
 export default {
   name: 'DatePick',
   model: {
@@ -30,6 +28,7 @@ export default {
     fp: null
   }),
   watch: {
+    // при измененити даты регистрации обновлять дату календаря
     registered() {
       this.fp.setDate(this.registered)
     }
@@ -37,9 +36,13 @@ export default {
   mounted() {
     this.init()
   },
+  beforeDestroy() {
+    this.fp.destroy()
+  },
   methods: {
     init() {
       this.fp = flatpickr(this.$refs.datePicker, {
+        // ицициализация отображения
         dateFormat: 'd.m.Y',
         // событие плагина
         onChange: (selectedDates, dateStr) => {

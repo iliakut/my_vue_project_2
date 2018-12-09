@@ -420,17 +420,17 @@
       "id": 28,
       "isActive": false,
       "balance": "",
-      "picture": "",
+      "picture": "https://i.imgur.com/VN5U0Ai.jpg",
       "age": 0,
       "accessLevel": "",
-      "firstName": "дима",
-      "lastName": "",
+      "firstName": "Дима",
+      "lastName": "Ш",
       "company": "",
-      "email": "",
+      "email": "123@mail.ru",
       "phone": "",
       "address": "",
       "about": "",
-      "registered": ""
+      "registered": "08.11.2017"
     }
   ]
 }

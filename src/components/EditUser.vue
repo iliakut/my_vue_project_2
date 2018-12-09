@@ -48,6 +48,13 @@ export default {
         .catch(error => console.log(error))
     },
     save() {
+      // валидация
+      this.$validator.validateAll()
+      if (this.errors.any()) {
+        alert('Заполнены не все поля')
+        return
+      }
+
       axios
         .patch(this.url, this.user)
         .then(() => {

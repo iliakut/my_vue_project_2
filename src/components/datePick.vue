@@ -33,6 +33,7 @@ export default {
       this.fp.setDate(this.registered)
     }
   },
+  //инициализация
   mounted() {
     this.init()
   },

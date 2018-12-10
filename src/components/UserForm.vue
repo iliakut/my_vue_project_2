@@ -3,7 +3,10 @@
 
     <div>
       <label>Имя</label>
-      <!--забиндим класс, если есть ошибка-->
+      <!--
+      забиндим класс, если есть ошибка
+      name - задается для vee-validate
+      -->
       <input
         v-validate="'required'"
         v-model="userToChange.firstName"
@@ -31,6 +34,11 @@
         {{ errors.first('lastName') }}
       </span>
     </div>
+
+    <date-pick
+      v-model="userToChange.birthDate"
+      :header="'Дата рождения'"
+    />
 
     <avatar-Uploader
       v-model="userToChange.picture"/>
@@ -71,6 +79,7 @@
 
     <date-pick
       v-model="userToChange.registered"
+      :header="'Зарегистрирован'"
     />
 
     <div>
@@ -91,14 +100,10 @@
       >
     </div>
 
-    <div>
-      <label>О себе</label>
-      <input
-        v-model="userToChange.about"
-        type="text"
-        class="form-control mr-sm-2"
-      >
-    </div>
+    <text-editor
+      :about="userToChange.about"
+      @aboutUser="aboutUser => userToChange.about = aboutUser"
+    />
 
     <pre>{{ userToChange }}</pre>
   </div>
@@ -112,7 +117,8 @@ export default {
   inject: ['$validator'],
   components: {
     avatarUploader: () => import('@/components/AvatarUploader'),
-    datePick: () => import('@/components/datePick')
+    datePick: () => import('@/components/datePick'),
+    textEditor: () => import('@/components/textEditor')
   },
   props: {
     user: {

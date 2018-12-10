@@ -1,9 +1,9 @@
 <template>
   <div>
-    <label>Зарегистрирован</label>
+    <label>{{ header }}</label>
     <input
       ref="datePicker"
-      :value="registered"
+      :value="date"
       type="text"
       class="form-control mr-sm-2, dark">
   </div>
@@ -12,13 +12,18 @@
 <script>
 import flatpickr from 'flatpickr'
 import 'flatpickr/dist/themes/dark.css'
+
 export default {
   name: 'DatePick',
   model: {
-    prop: 'registered'
+    prop: 'date'
   },
   props: {
-    registered: {
+    date: {
+      type: [String],
+      required: true
+    },
+    header: {
       type: String,
       required: true
     }
@@ -29,8 +34,8 @@ export default {
   }),
   watch: {
     // при измененити даты регистрации обновлять дату календаря
-    registered() {
-      this.fp.setDate(this.registered)
+    date() {
+      this.fp.setDate(this.date)
     }
   },
   //инициализация

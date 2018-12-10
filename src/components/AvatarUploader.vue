@@ -15,15 +15,21 @@
     <button type="button" class="btn btn-dark" @click="selectNewFile()">
       Выбрать новую...
     </button>
+    <vue-dropzone id="dropzone" ref="myVueDropzone" :options="dropzoneOptions"/>
   </div>
 
 </template>
 
 <script>
 import axios from 'axios'
+import vue2Dropzone from 'vue2-dropzone'
+import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 
 export default {
   name: 'AvatarUploader',
+  components: {
+    vueDropzone: vue2Dropzone
+  },
   model: {
     prop: 'picture'
   },
@@ -31,6 +37,16 @@ export default {
     picture: {
       type: String,
       required: true
+    }
+  },
+  data: function() {
+    return {
+      dropzoneOptions: {
+        url: 'https://api.imgur.com/3/image',
+        maxFilesize: 2,
+        maxFiles: 1,
+        headers: { Authorization: "'Client-ID 2cc16b58de99649'" }
+      }
     }
   },
   methods: {

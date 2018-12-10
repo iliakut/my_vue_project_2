@@ -33,7 +33,8 @@ const userTemplate = {
   phone: '',
   address: '',
   about: '',
-  registered: ''
+  registered: '',
+  birthDate: ''
 }
 
 export default {

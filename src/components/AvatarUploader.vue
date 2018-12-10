@@ -43,9 +43,7 @@ export default {
     return {
       dropzoneOptions: {
         url: 'https://api.imgur.com/3/image',
-        maxFilesize: 2,
-        maxFiles: 1,
-        headers: { Authorization: "'Client-ID 2cc16b58de99649'" }
+        headers: { Authorization: 'Client-ID 2cc16b58de99649' }
       }
     }
   },

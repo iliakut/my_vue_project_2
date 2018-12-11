@@ -7,32 +7,45 @@
       type="text"
       class="form-control mr-sm-2">
 
-    <div class="input-group mb-3">
+
+    <input ref="image" type="file" class="hidden">
+
+    <div>
       <img :src="picture">
     </div>
-
+    <form ref="dropzone" class="dropzone"/>
+    <!--
+      загрузка фотографий с помощью кнопки
     <input ref="image" type="file" class="hidden" @change="upload()">
     <button type="button" class="btn btn-dark" @click="selectNewFile()">
       Выбрать новую...
     </button>
-    <vue-dropzone id="dropzone" ref="myVueDropzone" :options="dropzoneOptions"/>
+    //Vue2 dropzone
+        <vue-dropzone id="dropzone" ref="myVueDropzone" :options="dropzoneOptions"/>
+    -->
+
   </div>
 
 </template>
 
 <script>
-import axios from 'axios'
-import vue2Dropzone from 'vue2-dropzone'
+//import axios from 'axios'
+//import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
+import Dropzone from 'dropzone'
+import 'dropzone/dist/dropzone.css'
 
 export default {
   name: 'AvatarUploader',
   components: {
+    /*
     vueDropzone: vue2Dropzone
+      */
   },
   model: {
     prop: 'picture'
   },
+
   props: {
     picture: {
       type: String,
@@ -41,19 +54,56 @@ export default {
   },
   data: function() {
     return {
+      size: 0
+      /*
+        параметро Vue2-dropZone
       dropzoneOptions: {
+        maxFiles: 1,
         url: 'https://api.imgur.com/3/image',
-        headers: { Authorization: 'Client-ID 2cc16b58de99649' }
-      }
+        headers: {
+          'Cache-Control': null,
+          'X-Requested-With': null,
+          Authorization: 'Client-ID 2cc16b58de99649'
+        }
+        */
     }
   },
+  mounted() {
+    this.initDropzone()
+  },
   methods: {
-    selectNewFile: function() {
-      this.$refs.image.click()
+    //инициализация DropZone
+    initDropzone() {
+      new Dropzone(this.$refs.dropzone, {
+        url: 'https://api.imgur.com/3/image',
+        paramName: 'image',
+        acceptedFiles: 'image/*',
+        method: 'post',
+        maxFiles: 1,
+        headers: {
+          'Cache-Control': null,
+          'X-Requested-With': null,
+          Authorization: 'Client-ID 2cc16b58de99649'
+        },
+        createImageThumbnails: false,
+        previewTemplate: '<div style="display:none"></div>',
+        success: (file, response) => {
+          this.setNewAvatar(response.data.link)
+          this.$refs.image.value = ''
+        }
+      })
     },
+
+    //отправить наверх
     setNewAvatar(picture) {
       this.$emit('input', picture)
+    }
+    /*
+      для загрузки фотографий с помощью кнопки
+          selectNewFile: function() {
+      this.$refs.image.click()
     },
+
     upload: function() {
       const url = 'https://api.imgur.com/3/image'
       const data = new FormData()
@@ -73,6 +123,7 @@ export default {
           this.$refs.image.value = ''
         })
     }
+    */
   }
 }
 </script>
@@ -86,5 +137,9 @@ img {
 }
 button {
   margin-bottom: 10px;
+}
+form {
+  width: 150px;
+  margin-top: 10px;
 }
 </style>

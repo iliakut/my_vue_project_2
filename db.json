@@ -21,7 +21,7 @@
       "id": 3,
       "isActive": true,
       "balance": "$3,481.46",
-      "picture": "http://placehold.it/128x128",
+      "picture": "https://i.imgur.com/vVOt89H.jpg",
       "age": 38,
       "accessLevel": "guest",
       "firstName": "Tiffany",
@@ -31,7 +31,7 @@
       "email": "tiffany.erickson@netropic.co.uk",
       "phone": "+7 (953) 557-3359",
       "address": "777 Beard Street, Forbestown, Virginia, 1372",
-      "about": "Non sunt proident excepteur in aliqua deserunt aliqua mollit exercitation tempor. Deserunt voluptate deserunt quis officia veniam cupidatat. Exercitation cupidatat culpa amet veniam consectetur nostrud deserunt reprehenderit laborum reprehenderit. Dolor quis anim sint irure officia quis officia ut consectetur cillum dolor occaecat. Pariatur voluptate do ipsum id culpa.",
+      "about": "<p>Non sunt proident excepteur in aliqua deserunt aliqua mollit exercitation tempor. Deserunt voluptate deserunt quis officia veniam cupidatat. Exercitation cupidatat culpa amet veniam consectetur nostrud deserunt reprehenderit laborum reprehenderit. Dolor quis anim sint irure officia quis officia ut consectetur cillum dolor occaecat. Pariatur voluptate do ipsum id culpa.</p>",
       "registered": "30.07.2014"
     },
     {

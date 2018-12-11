@@ -5,10 +5,10 @@
     <input
       v-model="picture"
       type="text"
-      class="form-control mr-sm-2">
+      class="form-control mr-sm-2" readonly>
 
 
-    <input ref="image" type="file" class="hidden">
+    <input ref="image" type="file" class="hidden" readonly>
 
     <div>
       <img :src="picture">
@@ -85,8 +85,6 @@ export default {
           'X-Requested-With': null,
           Authorization: 'Client-ID 2cc16b58de99649'
         },
-        createImageThumbnails: false,
-        previewTemplate: '<div style="display:none"></div>',
         success: (file, response) => {
           this.setNewAvatar(response.data.link)
           this.$refs.image.value = ''
@@ -139,7 +137,7 @@ button {
   margin-bottom: 10px;
 }
 form {
-  width: 150px;
+  width: 190px;
   margin-top: 10px;
 }
 </style>

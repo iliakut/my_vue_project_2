@@ -1,35 +1,41 @@
 <template>
   <div>
+
     <table class="table table-hover">
       <caption>
         Общее количество пользователей: {{ usersListLen }}
       </caption>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Имя</th>
-          <th>Фамилия</th>
-          <th>Активен</th>
-          <th>Баланс</th>
-          <th>Email</th>
-          <th>Телефон</th>
-          <th>Зарегистрирован</th>
-        </tr>
-      </thead>
+      <slot name="header">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Активен</th>
+            <th>Баланс</th>
+            <th>Email</th>
+            <th>Телефон</th>
+            <th>Зарегистрирован</th>
+          </tr>
+        </thead>
+      </slot>
       <tbody>
         <tr
           v-for="user in arrOfArrUsers[currentPage]"
           :key="user.id">
-          <router-link :to="/edit/ + user.id">
-            <td>{{ user.id }}</td>
-          </router-link>
-          <td>{{ user.firstName }}</td>
-          <td>{{ user.lastName }}</td>
-          <td>{{ user.isActive }}</td>
-          <td>{{ user.balance }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.phone }}</td>
-          <td>{{ user.registered }}</td>
+          <slot v-bind="user" name="row">
+            <router-link :to="/edit/ + user.id">
+              <td>{{ user.id }}</td>
+            </router-link>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.isActive }}</td>
+            <td>{{ user.balance }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.registered }}</td>
+          </slot>
+
         </tr>
       </tbody>
 

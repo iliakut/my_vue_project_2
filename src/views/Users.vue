@@ -12,7 +12,32 @@
     <user-list
       v-else
       :users="users"
-      :rows="rows"/>
+      :rows="rows">
+      <!--слот заголовка-->
+      <thead slot="header">
+        <tr>
+          <th>#</th>
+          <th>Имя</th>
+          <th>Фамилия</th>
+          <th>Email</th>
+          <th>Телефон</th>
+        </tr>
+      </thead>
+      <!--
+      слот для таблицы пользователей
+      slot-scope - для указания имени переменной,
+      которая привязана в нутри копонента
+      -->
+      <template slot="row" slot-scope="user">
+        <router-link :to="/edit/ + user.id">
+          <td>{{ user.id }}</td>
+        </router-link>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+      </template>
+    </user-list>
   </div>
 </template>
 
